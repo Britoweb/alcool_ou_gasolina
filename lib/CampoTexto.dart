@@ -9,6 +9,10 @@ class CampoTexto extends StatefulWidget {
 }
 
 class _CampoTextoState extends State<CampoTexto> {
+
+  TextEditingController _textEditingController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +45,26 @@ class _CampoTextoState extends State<CampoTexto> {
                 fontSize: 25,
                 color: Colors.green,
               ),
+              obscureText: false, //Esconde os caracteres.
+              onSubmitted: (String texto) {
+                print("Valor digitado: " + texto);
+              },
+              controller: _textEditingController,
             ),
 
-          )
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.lightGreen,
+              onPrimary: Colors.white,
+            ),
+              onPressed: () {
+                print("Valor digitado: " + _textEditingController.text);
+              },
+              child: Text(
+                  "Salvar"
+              ),
+          ),
         ],
       ),
     );
