@@ -13,12 +13,13 @@ class _HomeState extends State<Home> {
 
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
+  String _textoResultado = "";
+
 
   void _calcular () {
 
     double? _precoAlcool = double.tryParse( _controllerAlcool.text );
     double? _precoGasolina = double.tryParse( _controllerGasolina.text );
-    String _textoResultado = "";
 
     if (_precoAlcool == null || _precoGasolina == null) {
       setState(() {
